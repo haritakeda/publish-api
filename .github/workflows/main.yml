@@ -1,0 +1,25 @@
+name: Publish package
+
+on:
+  push:
+    branches:
+       - develop
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Create maven settings.xml
+      uses: whelk-io/maven-settings-xml-action@v1
+      with:
+        servers: '[{"id": "github", "username": "${{secrets.githubusername}}", "password": "${{secrets.GITHUB_TOKEN}}" }]'    
+    - run: |
+        cat ~/.m2/settings.xml
+    - name: Set up JDK 1.8 version
+      uses: actions/setup-java@v1
+      with:
+        java-version: 1.8
+        path: ~/.m2/repository        
+        settings-path: ${{ github.workspace }} # location for the settings.xml file
+    - name: Publish a package
+      run: mvn deploy

@@ -12,6 +12,6 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
 		<http:listener doc:name="Listener" doc:id="4500ab68-1d59-451c-a252-91bdc7722b95" config-ref="HTTP_Listener_config" path="${api.path}"/>
 		<logger level="INFO" doc:name="Logger" doc:id="d9513047-b517-436c-ac84-12ae150f3b84" message="publish flow started"/>
 		<set-payload value="#[payload]" doc:name="Set Payload" doc:id="6957331a-514f-48d3-8c60-13b2071b48cf" />
-		<logger level="INFO" doc:name="Logger" doc:id="b5b963e1-d8b1-4b09-93d0-de60aa31d281" message="publish flow ended"/>
+		<logger level="INFO" doc:name="Logger" doc:id="b5b963e1-d8b1-4b09-93d0-de60aa31d281" message="publish flow ended.."/>
 	</flow>
 </mule>

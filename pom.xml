@@ -6,8 +6,7 @@
 	<groupId>com.takeda</groupId>
 	<artifactId>publish-api</artifactId>
     	<version>1.0.0</version>
-    <packaging>mule-application</packaging>
-
+    	<packaging>mule-application</packaging>
 	<name>publish-api</name>
 
     <properties>

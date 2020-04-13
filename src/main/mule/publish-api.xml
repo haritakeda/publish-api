@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="83187530-34fd-4434-93d8-796099897765" >
+		<http:listener-connection host="0.0.0.0" port="${http.private.port}" />
+	</http:listener-config>
+	<configuration-properties doc:name="Configuration properties" doc:id="73ab121d-3f0f-42da-bd23-7ec4366484aa" file="config\dev.yaml" />
+	<flow name="publish-apiFlow" doc:id="53ce4318-edf0-4ec6-87ba-c418d196e92b" >
+		<http:listener doc:name="Listener" doc:id="4500ab68-1d59-451c-a252-91bdc7722b95" config-ref="HTTP_Listener_config" path="${api.path}"/>
+		<logger level="INFO" doc:name="Logger" doc:id="d9513047-b517-436c-ac84-12ae150f3b84" message="publish flow started"/>
+		<set-payload value="#[payload]" doc:name="Set Payload" doc:id="6957331a-514f-48d3-8c60-13b2071b48cf" />
+		<logger level="INFO" doc:name="Logger" doc:id="b5b963e1-d8b1-4b09-93d0-de60aa31d281" message="publish flow ended"/>
+	</flow>
+</mule>

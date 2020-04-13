@@ -1,0 +1,12 @@
+http:
+  port: "8081"
+  private:
+    port: "8091"
+    host: "0.0.0.0"
+https:
+  port: "8082"
+  private:
+    port: "8092"
+    host: "0.0.0.0"
+api:
+  path: "/publish"
